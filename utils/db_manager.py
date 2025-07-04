@@ -17,7 +17,7 @@ class WorkerDB:
                     drive_folder_id TEXT
                 )""")
             self.conn.commit()
-
+       conn.close()
     def get_worker(self, user_id):
         cursor = self.conn.cursor()
         cursor.execute("SELECT * FROM workers WHERE user_id=?", (user_id,))
