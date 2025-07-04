@@ -1,6 +1,7 @@
 
 import os
 from telegram.ext import Updater
+from telegram.ext import ApplicationBuilder
 from dotenv import load_dotenv
 from handlers import setup_handlers
 from utils.time_utils import should_be_active
@@ -8,12 +9,15 @@ from utils.time_utils import should_be_active
 load_dotenv()
 
 def main():
-    updater = Updater(token=os.getenv("TELEGRAM_TOKEN"), use_context=True)
-    setup_handlers(updater.dispatcher)
-
-    print("🤖 Bot avviato - In attesa di comandi...")
-    updater.start_polling()
-    updater.idle()
+    # Nuova sintassi per v20+
+    application = ApplicationBuilder() \
+        .token(os.getenv("TELEGRAM_TOKEN")) \
+        .build()
+    
+    setup_handlers(application)
+    
+    print("🤖 Bot avviato - In attesa di messaggi...")
+    application.run_polling()
 
 if __name__ == '__main__':
     main()
