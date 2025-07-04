@@ -1,6 +1,11 @@
 from datetime import datetime
 import os
 import yaml
+from datetime import datetime
+
+def get_current_month_year():
+    now = datetime.now()
+    return now.month, now.year
 
 def should_be_active():
     """Controlla se il bot deve essere attivo"""
