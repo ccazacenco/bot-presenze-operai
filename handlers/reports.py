@@ -1,4 +1,3 @@
-
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler
 from utils.excel_generator import create_presence_template
@@ -26,3 +25,5 @@ def handle_monthly_report(update: Update, context: CallbackContext):
         f"📅 {month:02d}/{year}\n"
         f"🔗 {drive_link}"
     )
+
+report_handler = CommandHandler('report', handle_monthly_report)
