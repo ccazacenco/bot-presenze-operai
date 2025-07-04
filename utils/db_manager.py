@@ -1,4 +1,3 @@
-
 import sqlite3
 from contextlib import closing
 
@@ -17,8 +16,13 @@ class WorkerDB:
                     drive_folder_id TEXT
                 )""")
             self.conn.commit()
-       conn.close()
+        self.conn.close()  # correggi indentazione qui
+
     def get_worker(self, user_id):
         cursor = self.conn.cursor()
         cursor.execute("SELECT * FROM workers WHERE user_id=?", (user_id,))
         return cursor.fetchone()
+
+def init_db():
+    """Funzione helper per inizializzare il DB"""
+    WorkerDB()  # crea istanza e inizializza DB
