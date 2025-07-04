@@ -6,6 +6,12 @@ from handlers import setup_handlers
 from utils.time_utils import should_be_active
 
 load_dotenv()
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/health')
+def health_check():
+    return "OK", 200
 
 def main():
     updater = Updater(token=os.getenv("TELEGRAM_TOKEN"), use_context=True)
