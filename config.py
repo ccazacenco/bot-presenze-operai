@@ -1,8 +1,12 @@
 import os
 from pathlib import Path
-from dotenv import load_dotenv 
+from dotenv import load_dotenv
+
+# Carica le variabili d'ambiente dal file .env
+load_dotenv()
 
 class Config:
-    TELEGRAM_TOKEN = os.getenv("7734347521:AAHpCdItWVUwILotW5oWPa1VOG0WGsIyC5M")
-    GOOGLE_CREDS_PATH = Path("credentials/service_account.json")
-    DRIVE_ROOT_FOLDER = os.getenv("18FK5EcYz5hOm3OZiK0shmx0QTRR0fNxw")
+    # Usa i nomi delle variabili d'ambiente, non i valori hardcoded!
+    TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+    GOOGLE_CREDS_PATH = Path(__file__).parent / "credentials" / "service_account.json"
+    DRIVE_ROOT_FOLDER = os.getenv("DRIVE_FOLDER_ID")
