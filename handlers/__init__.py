@@ -1,10 +1,10 @@
-from .registration import registration_handler
-from .presence import presence_handler
-from .reports import report_handler
-from .admin import setup_admin_handlers
+from telegram.ext import CommandHandler, MessageHandler, filters
+from .admin import admin_command, setup_admin_handlers
 
-def setup_handlers(dispatcher):
-    dispatcher.add_handler(registration_handler)
-    dispatcher.add_handler(presence_handler)
-    dispatcher.add_handler(report_handler)
-    dispatcher.add_handlers(setup_admin_handlers)  # Nota la 's' finale
+def setup_handlers(application):
+    # Aggiungi i singoli handler uno per uno
+    application.add_handler(CommandHandler("admin", admin_command))
+    
+    # Oppure se setup_admin_handlers restituisce una lista:
+    # for handler in setup_admin_handlers():
+    #     application.add_handler(handler)
