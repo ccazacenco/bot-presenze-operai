@@ -7,4 +7,4 @@ def setup_handlers(dispatcher):
     dispatcher.add_handler(registration_handler)
     dispatcher.add_handler(presence_handler)
     dispatcher.add_handler(report_handler)
-    dispatcher.add_handler(setup_admin_handler)
+    dispatcher.add_handler(setup_admin_handlers)  # Nota la 's' finale
