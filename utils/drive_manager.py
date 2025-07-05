@@ -1,15 +1,16 @@
-
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
-from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2.service_account import Credentials
 from config import Config
 import os
 
 class DriveManager:
     def __init__(self):
         self.scope = ['https://www.googleapis.com/auth/drive']
-        self.creds = ServiceAccountCredentials.from_json_keyfile_name(
-            Config.GOOGLE_CREDS_PATH, self.scope)
+        self.creds = Credentials.from_service_account_file(
+            Config.GOOGLE_CREDS_PATH, 
+            scopes=self.scope
+        )
         self.service = build('drive', 'v3', credentials=self.creds)
 
     def upload_file(self, file_path, folder_id):
