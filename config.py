@@ -1,6 +1,6 @@
-
 import os
 from pathlib import Path
+from dotenv import load_dotenv 
 
 class Config:
     TELEGRAM_TOKEN = os.getenv("7734347521:AAHpCdItWVUwILotW5oWPa1VOG0WGsIyC5M")
