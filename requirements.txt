@@ -1,9 +1,2 @@
-python-telegram-bot==20.6
-google-api-python-client==2.48.0
-google-auth==2.3.3  # Sostituisce oauth2client  # Sostituisce oauth2client
-openpyxl==3.1.2
-python-dotenv==0.19.0
-PyYAML==6.0.2  # Versione esatta  # Versione esatta
-flask==2.1.0
-pycryptodome==3.10.1
-setuptools==68.0.0  # Necessario per evitare errori di build
+python-telegram-bot==20.6google-api-python-client==2.48.0google-auth==2.3.3  # Sostituisce oauth2clientgoogle-auth==2.3.3  # Sostituisce oauth2client  # Sostituisce oauth2clientopenpyxl==3.1.2python-dotenv==0.19.0PyYAML==6.0.2  # Versione esattaPyYAML==6.0.2  # Versione esatta  # Versione esattaflask==2.1.0pycryptodome==3.10.1setuptools==68.0.0  # Necessario per evitare errori di build
+0 commit commentsComments0 (0)Lock conversation
